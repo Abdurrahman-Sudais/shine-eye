@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens. Tailwind v4 reads these via @theme, so classes like
+ * `bg-surface`, `text-muted`, `bg-danger-soft` work everywhere.
+ * Verdict colours: safe / warn / danger, each with a soft tint for backgrounds.
+ */
+:root {
+  --background: #f6f7f5;
+  --surface: #ffffff;
+  --foreground: #121815;
+  --muted: #5b6660;
+  --border: #dfe3df;
+  --brand: #0f6b4f;
+  --brand-fg: #ffffff;
+  --safe: #13804f;
+  --safe-soft: #e3f4ea;
+  --warn: #a35d00;
+  --warn-soft: #fdf0d9;
+  --danger: #c0262d;
+  --danger-soft: #fbe4e3;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0d110f;
+    --surface: #161c19;
+    --foreground: #e9eeeb;
+    --muted: #97a39c;
+    --border: #2a332e;
+    --brand: #37c08f;
+    --brand-fg: #06130e;
+    --safe: #4cd08f;
+    --safe-soft: #12291d;
+    --warn: #f0ae4a;
+    --warn-soft: #2e2311;
+    --danger: #ff6b6b;
+    --danger-soft: #331617;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-brand: var(--brand);
+  --color-brand-fg: var(--brand-fg);
+  --color-safe: var(--safe);
+  --color-safe-soft: var(--safe-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
