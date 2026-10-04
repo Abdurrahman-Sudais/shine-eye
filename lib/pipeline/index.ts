@@ -1,5 +1,7 @@
 import "server-only";
-import type { AnalyzeRequest, PipelineStage, Verdict } from "@/lib/schema";
+import { looksLikeBareUrl, normalizeText } from "@/lib/pipeline/ingest";
+import { extractSignals } from "@/lib/pipeline/signals";
+import type { AnalyzeRequest, PipelineStage, Signal, Verdict } from "@/lib/schema";
 
 /**
  * Pipeline entry point. Stages (see CLAUDE.md):
@@ -7,48 +9,53 @@ import type { AnalyzeRequest, PipelineStage, Verdict } from "@/lib/schema";
  * `mode: "llm_only"` skips signals + retrieval so the eval can measure what
  * the full pipeline adds.
  *
- * Slice 0: placeholder output with the final shape, flagged `stub: true`.
+ * Slice 1: ingest + signals are real; retrieve/reason/score/localize are pending,
+ * so the verdict itself is still a placeholder (`stub: true`).
  */
 export async function analyze(req: AnalyzeRequest): Promise<Verdict> {
-  const started = performance.now();
-  const text = req.text;
-  const isUrl = /^https?:\/\/\S+$/i.test(text) || /^[\w-]+(\.[\w-]+)+\/?\S*$/i.test(text);
+  const pipeline: PipelineStage[] = [];
+  const timed = <T>(stage: PipelineStage["stage"], fn: () => T): T => {
+    const t0 = performance.now();
+    const result = fn();
+    pipeline.push({ stage, status: "ok", ms: Math.round(performance.now() - t0) });
+    return result;
+  };
+  const skip = (stage: PipelineStage["stage"], note: string) =>
+    pipeline.push({ stage, status: "skipped", ms: 0, note });
 
-  const skipped = (stage: PipelineStage["stage"], note: string): PipelineStage => ({
-    stage,
-    status: "skipped",
-    ms: 0,
-    note,
-  });
+  const text = timed("ingest", () => normalizeText(req.text));
 
-  const pipeline: PipelineStage[] = [
-    { stage: "ingest", status: "ok", ms: Math.round(performance.now() - started) },
-    req.mode === "llm_only" ? skipped("signals", "llm_only mode") : skipped("signals", "not built yet"),
-    req.mode === "llm_only" ? skipped("retrieve", "llm_only mode") : skipped("retrieve", "not built yet"),
-    skipped("reason", "not built yet"),
-    skipped("score", "not built yet"),
-    skipped("localize", "not built yet"),
-  ];
+  let signals: Signal[] = [];
+  if (req.mode === "llm_only") {
+    skip("signals", "llm_only mode");
+    skip("retrieve", "llm_only mode");
+  } else {
+    signals = timed("signals", () => extractSignals(text));
+    skip("retrieve", "not built yet");
+  }
+  skip("reason", "not built yet");
+  skip("score", "not built yet");
+  skip("localize", "not built yet");
 
   return {
     risk_level: "suspicious",
     risk_score: 50,
     confidence: "low",
     scam_type: "unknown",
-    scam_type_label: "Not analysed yet",
+    scam_type_label: "AI verdict not connected yet",
     red_flags: [],
     explanation:
-      "The analysis pipeline isn't connected yet, so this is placeholder output, not a real check.",
+      "The AI verdict isn't connected yet, so the risk level above is a placeholder. The rule-based findings below are real.",
     next_steps: [
       "Don't share OTPs, PINs, BVN, or passwords with anyone who messages you.",
       "Confirm directly with the company using their official app or the number on your card.",
     ],
-    uncertainty_notes: ["Placeholder result: no analysis was performed."],
-    signals: [],
+    uncertainty_notes: ["Placeholder verdict: only the rule-based checks ran."],
+    signals,
     matched_patterns: [],
     language: req.language,
     mode: req.mode,
-    input: { kind: isUrl ? "url" : "text", text },
+    input: { kind: looksLikeBareUrl(text) ? "url" : "text", text },
     pipeline,
     stub: true,
   };
