@@ -1,0 +1,506 @@
+[
+  {
+    "id": "bank-bvn-update-link",
+    "scam_type": "bank_phishing",
+    "title": "Bank \"update your BVN\" phishing link",
+    "description": "SMS or WhatsApp message pretending to be a Nigerian bank, claiming the account is blocked or restricted because BVN/NIN is not updated, with a link to a fake login page.",
+    "examples": [
+      "Dear customer, your account has been restricted due to BVN not linked. Click to update: [link]",
+      "Your account don block because your BVN never update. Click this link to update am today."
+    ],
+    "red_flags": ["Link is not the bank's official domain", "Threat that account will be blocked", "Asks for BVN, login or OTP"],
+    "action": "Don't click. Banks don't ask you to update BVN through links. Open your bank's official app or call the number on the back of your card."
+  },
+  {
+    "id": "bank-otp-call",
+    "scam_type": "otp_theft",
+    "title": "\"Customer care\" asking for your OTP",
+    "description": "Caller or message claiming to be from your bank, fintech or telco asks you to read out or forward an OTP or token code, which they use to move money or take over your account.",
+    "examples": [
+      "This is GTBank customer care, we sent you a code to reverse the failed debit, kindly send it to us.",
+      "Abeg forward the 6-digit code wey enter your phone now so we fit fix your account."
+    ],
+    "red_flags": ["Anyone asking for an OTP", "Claims to be customer care from an unknown number", "Urgency to fix a problem you didn't report"],
+    "action": "Never share an OTP with anyone, including people who say they are bank staff. Hang up and call your bank using the number on your card."
+  },
+  {
+    "id": "bank-card-pin",
+    "scam_type": "otp_theft",
+    "title": "Request for ATM card PIN or card details",
+    "description": "Message or call asking you to confirm your card number, CVV, expiry date or PIN, often under the pretext of card upgrade, card blocking or a reward.",
+    "examples": [
+      "Your ATM card will be blocked today. Reply with your card number and PIN to upgrade to the new chip card.",
+      "To receive your reward, confirm the 16 digits on your card and the 3 digits at the back."
+    ],
+    "red_flags": ["Asks for PIN, CVV or full card number", "Card upgrade or blocking story", "Unknown sender"],
+    "action": "Never share your PIN, CVV or full card number. If worried, block the card in your bank app and call the number on the back of the card."
+  },
+  {
+    "id": "fake-credit-alert-sms",
+    "scam_type": "fake_payment",
+    "title": "Fake credit alert SMS",
+    "description": "Scammer 'buys' goods or services and sends a fake bank credit alert SMS, often from a normal phone number, then pressures the seller to release goods quickly.",
+    "examples": [
+      "Acct: 01****89 Amt: NGN150,000.00 CR Desc: TRF FROM JOHN Avail Bal: NGN 152,300.00",
+      "I don pay, check your alert. Abeg send the goods sharp sharp, my driver dey wait."
+    ],
+    "red_flags": ["Alert came from a regular phone number, not your bank's sender ID", "Buyer rushes you to release goods", "Balance doesn't match your real balance"],
+    "action": "Don't rely on SMS alerts. Confirm the money is in your account through your banking app or statement before releasing goods."
+  },
+  {
+    "id": "fake-transfer-screenshot",
+    "scam_type": "fake_payment",
+    "title": "Fake transfer receipt or screenshot",
+    "description": "Buyer sends an edited or generated 'transfer successful' screenshot from a banking or fintech app to convince a seller payment was made.",
+    "examples": [
+      "See the receipt, transfer successful. It may take some minutes to reflect, please release the item.",
+      "Payment sent, here's the screenshot. Network dey delay am, just send the goods."
+    ],
+    "red_flags": ["Screenshot instead of money in your account", "'It will reflect soon' excuse", "Pressure to release goods before confirming"],
+    "action": "A screenshot is not payment. Only release goods when you see the money in your own banking app."
+  },
+  {
+    "id": "overpayment-refund",
+    "scam_type": "fake_payment",
+    "title": "Overpayment, please refund the difference",
+    "description": "Scammer claims to have mistakenly sent too much (often with a fake alert) and asks you to refund the 'extra' to another account.",
+    "examples": [
+      "I mistakenly sent N50,000 instead of N5,000, please refund the balance to this account.",
+      "Sorry I sent extra money to you by mistake, kindly send back N45,000."
+    ],
+    "red_flags": ["Claim of accidental overpayment", "Request to refund to a different account", "Pressure and emotional appeals"],
+    "action": "Check your real balance in your banking app. If money genuinely arrived by mistake, let your bank handle the reversal; don't send money yourself."
+  },
+  {
+    "id": "relative-new-number",
+    "scam_type": "impersonation",
+    "title": "\"It's me, I'm using a friend's phone\"",
+    "description": "Scammer pretends to be a child, sibling or parent on a new number, claims their phone is lost or broken, and urgently asks for money or airtime while discouraging calls.",
+    "examples": [
+      "Mummy na me, my phone fall inside water. I dey use my friend phone. Abeg send N20,000 to this account.",
+      "Hi Dad, this is my new number. I'm in trouble, please send money now, I can't talk."
+    ],
+    "red_flags": ["New number claiming to be family", "Urgent money request", "Asks you not to call or says they can't talk"],
+    "action": "Call your relative on their old number or ask a question only they would know before sending anything."
+  },
+  {
+    "id": "boss-impersonation",
+    "scam_type": "impersonation",
+    "title": "Boss, pastor or VIP asking for a quick favour",
+    "description": "Message impersonates a boss, pastor, lecturer or public figure (often using their photo) asking for money, gift cards or airtime 'urgently and confidentially'.",
+    "examples": [
+      "This is Pastor. I need you to help me send N100,000 to this account for an urgent church project. Keep it between us.",
+      "Are you available? I need a quick favour, buy airtime for me and I will refund you after my meeting."
+    ],
+    "red_flags": ["Unknown number using a familiar name or photo", "Secrecy and urgency", "Request for money, airtime or gift cards"],
+    "action": "Verify by calling the person on a number you already have. Real leaders won't mind you checking."
+  },
+  {
+    "id": "whatsapp-code-takeover",
+    "scam_type": "account_takeover",
+    "title": "WhatsApp 6-digit code takeover",
+    "description": "Friend's hacked account or stranger says they 'sent a code to you by mistake' and asks you to forward it. The code is your WhatsApp registration code, giving them your account.",
+    "examples": [
+      "Hello, I mistakenly sent a 6-digit code to your number, please send it back to me.",
+      "Abeg I need you to help me vote, just send me the code wey dem send to your phone."
+    ],
+    "red_flags": ["Asks for a code you received by SMS", "'Sent by mistake' or 'help me vote' story", "Message from a friend acting strange"],
+    "action": "Never share WhatsApp verification codes. Turn on two-step verification in WhatsApp settings."
+  },
+  {
+    "id": "fake-job-fee",
+    "scam_type": "fake_job",
+    "title": "Job offer that requires a fee",
+    "description": "Message says you were shortlisted for a job (often with a big company or agency) but must pay a registration, training, medical or form fee to secure the slot.",
+    "examples": [
+      "Congratulations! You have been shortlisted for NNPC graduate recruitment. Pay N7,500 registration fee to secure your slot.",
+      "You are selected for the job. Pay N10,000 for your ID card and training kit before resumption."
+    ],
+    "red_flags": ["You never applied", "Fee required to get the job", "Payment to a personal or fintech account"],
+    "action": "Real employers don't charge to hire you. Check the company's official careers page and don't pay any fee."
+  },
+  {
+    "id": "online-task-job",
+    "scam_type": "fake_job",
+    "title": "Online task job (like, review, rate) with deposits",
+    "description": "Recruiter offers easy money for liking videos, rating products or 'tasks'. Early small payouts build trust, then you must deposit money to unlock bigger tasks or withdraw.",
+    "examples": [
+      "Earn N15,000 daily by liking YouTube videos. Join our Telegram group to start.",
+      "To complete this set of tasks and withdraw your commission, you need to recharge your account with N30,000."
+    ],
+    "red_flags": ["Payment for trivial tasks", "Move to Telegram/WhatsApp group", "Must deposit to withdraw"],
+    "action": "Stop depositing. Money you've 'earned' there usually can't be withdrawn. Report the group and leave."
+  },
+  {
+    "id": "scholarship-fee",
+    "scam_type": "fake_scholarship",
+    "title": "Scholarship or visa offer with processing fee",
+    "description": "Fake scholarship, grant or study-abroad offer asks students to pay processing, visa or 'acceptance' fees to a personal account.",
+    "examples": [
+      "You have been awarded a fully funded scholarship to study in Canada. Pay N45,000 processing fee within 48 hours.",
+      "Your visa has been approved, pay the embassy clearance fee to this account."
+    ],
+    "red_flags": ["Award you didn't apply for", "Processing or clearance fee", "Deadline pressure"],
+    "action": "Confirm on the official scholarship or embassy website. Genuine scholarships don't collect fees through personal accounts."
+  },
+  {
+    "id": "ponzi-double-money",
+    "scam_type": "investment",
+    "title": "Double-your-money investment",
+    "description": "Investment scheme promising very high fixed returns (e.g. 30-50% weekly) with referral bonuses. Early members are paid from new deposits until it collapses.",
+    "examples": [
+      "Invest N50,000 today and get N100,000 in 7 days. 100% guaranteed!",
+      "Our platform pays 40% weekly profit. Refer friends and earn more."
+    ],
+    "red_flags": ["Guaranteed high returns", "Referral rewards", "Pressure to invest quickly"],
+    "action": "No legitimate investment guarantees high fixed returns. Don't invest, and don't recruit others."
+  },
+  {
+    "id": "crypto-trading-mentor",
+    "scam_type": "investment",
+    "title": "Crypto or forex 'account manager'",
+    "description": "Someone online offers to trade crypto or forex for you, shows fake profits on a dashboard, then asks for fees or taxes before you can withdraw.",
+    "examples": [
+      "I can help you grow your USDT with my trading bot, 20% daily profit.",
+      "Your profit is ready but you need to pay withdrawal tax of $300 first."
+    ],
+    "red_flags": ["Stranger offering to trade for you", "Unrealistic daily profits", "Fee or tax required to withdraw"],
+    "action": "Don't send more money to 'unlock' withdrawals. Stop contact and report the account."
+  },
+  {
+    "id": "lottery-prize-win",
+    "scam_type": "prize",
+    "title": "You won a prize or promo",
+    "description": "Message says you won a lottery, telco promo, giveaway or raffle you never entered, and must pay a fee or share details to claim.",
+    "examples": [
+      "Congratulations! Your MTN line has won N2,000,000 in our anniversary promo. Call this number to claim.",
+      "You have won an iPhone in our giveaway. Pay delivery fee of N5,000 to receive it."
+    ],
+    "red_flags": ["Prize for a contest you didn't enter", "Fee to claim", "Unknown sender"],
+    "action": "You can't win a contest you didn't enter. Don't pay or share details; check the company's official channels."
+  },
+  {
+    "id": "fake-government-grant",
+    "scam_type": "fake_grant",
+    "title": "Fake government grant or palliative",
+    "description": "Message claims you qualify for a federal, CBN or NGO grant, palliative or empowerment fund and asks for BVN, a link registration or a fee.",
+    "examples": [
+      "FG is giving N50,000 COVID relief grant. Register with your BVN through this link before it closes.",
+      "CBN empowerment grant: pay N3,000 processing fee to receive N300,000."
+    ],
+    "red_flags": ["Free money from government via link", "Asks for BVN or fee", "Non-.gov.ng website"],
+    "action": "Government programmes are announced on official .gov.ng sites. Don't share BVN or pay any fee."
+  },
+  {
+    "id": "social-giveaway-fee",
+    "scam_type": "prize",
+    "title": "Celebrity or influencer giveaway",
+    "description": "Fake celebrity or influencer account announces a cash giveaway; 'winners' are asked to pay a transfer, activation or registration fee.",
+    "examples": [
+      "You have been selected as a winner of my N500,000 giveaway. Pay N10,000 activation fee to receive your money.",
+      "DM me to claim your giveaway, small charge for transfer."
+    ],
+    "red_flags": ["Unverified account or lookalike username", "Winner must pay to receive", "DM pressure"],
+    "action": "Real giveaways never ask winners to pay. Check the verified account and ignore."
+  },
+  {
+    "id": "delivery-fee-link",
+    "scam_type": "delivery",
+    "title": "Package delivery fee or address update",
+    "description": "SMS claims a parcel (often DHL, GIG or a courier) couldn't be delivered and asks you to pay a small fee or update your address through a link.",
+    "examples": [
+      "DHL: Your package is on hold due to unpaid delivery fee of N1,500. Pay here: [link]",
+      "We attempted delivery but address incomplete. Update details at [link] within 24 hours."
+    ],
+    "red_flags": ["Package you weren't expecting", "Small fee via link", "Non-official domain"],
+    "action": "Track parcels only on the courier's official website or app using your own tracking number."
+  },
+  {
+    "id": "customs-clearance-fee",
+    "scam_type": "delivery",
+    "title": "Customs clearance fee for a gift",
+    "description": "Often follows an online romance: a 'gift' or package is held at customs or the airport and you must pay clearance, duty or anti-terrorism fees.",
+    "examples": [
+      "Your package from your fiancé is at Lagos airport customs. Pay N250,000 clearance fee to release it.",
+      "The diplomat carrying your box needs N180,000 for clearance before delivery."
+    ],
+    "red_flags": ["Gift from someone you met online", "Customs or diplomat story", "Fee to personal account"],
+    "action": "Nigeria Customs doesn't collect duty through personal accounts. Stop paying and talk to someone you trust."
+  },
+  {
+    "id": "romance-emergency",
+    "scam_type": "romance",
+    "title": "Online romance with sudden emergency",
+    "description": "Someone met online builds a relationship over weeks, avoids video calls, then needs money for an emergency, travel, medical bills or a stuck inheritance.",
+    "examples": [
+      "My love, I'm stuck at the airport and they won't let me board until I pay N300,000. Please help me.",
+      "I can't video call because my camera is bad, but I need you to help with my hospital bill."
+    ],
+    "red_flags": ["Met online, never met in person", "Avoids video calls", "Emergency needing money"],
+    "action": "Don't send money to someone you haven't met in person. Talk to a friend or family member before acting."
+  },
+  {
+    "id": "sextortion",
+    "scam_type": "sextortion",
+    "title": "Sextortion or blackmail",
+    "description": "Scammer claims to have intimate photos or videos (real or fake/AI-generated) and threatens to share them with your contacts unless you pay.",
+    "examples": [
+      "I have your video. Pay N200,000 or I will send it to all your contacts and family.",
+      "Send money now or I post your pictures on Facebook tonight."
+    ],
+    "red_flags": ["Threat to share private images", "Payment demand with deadline", "Images may be AI-faked"],
+    "action": "Don't pay; paying usually leads to more demands. Stop responding, save evidence, block, and report to the platform. Talk to someone you trust."
+  },
+  {
+    "id": "loan-app-harassment",
+    "scam_type": "loan_app",
+    "title": "Illegal loan app threats",
+    "description": "Unregistered loan app uses access to your contacts and photos to threaten, shame or defame you, or demands repayment of a loan you didn't take.",
+    "examples": [
+      "You are a debtor. Pay now or we will send messages to all your contacts that you are a thief.",
+      "Your loan is overdue. We will post your picture as a fraudster if you don't pay in 2 hours."
+    ],
+    "red_flags": ["Threats to contact your family or friends", "Shaming or defamation", "Extreme short deadlines"],
+    "action": "Don't panic-pay unknown amounts. Save evidence and report illegal loan apps to the FCCPC through its official website. Revoke the app's permissions."
+  },
+  {
+    "id": "fake-loan-upfront-fee",
+    "scam_type": "loan_app",
+    "title": "Instant loan with upfront fee",
+    "description": "Offer of a quick loan with no collateral, but you must first pay an insurance, processing or activation fee.",
+    "examples": [
+      "Get N500,000 loan instantly, no BVN needed. Pay N15,000 insurance fee to disburse.",
+      "Your loan is approved! Pay activation fee of N7,000 to receive the money."
+    ],
+    "red_flags": ["Fee before disbursement", "Guaranteed approval", "Personal account for payment"],
+    "action": "Legitimate lenders deduct fees from the loan, not collect them upfront. Don't pay."
+  },
+  {
+    "id": "telco-sim-upgrade",
+    "scam_type": "telco",
+    "title": "SIM upgrade / NIN-SIM linkage scam",
+    "description": "Message or caller claims your SIM will be barred unless you link NIN, upgrade to 4G/5G or dial a code, aiming to swap your SIM or steal details.",
+    "examples": [
+      "Your MTN line will be barred within 24 hours. Link your NIN at this link to avoid disconnection.",
+      "Dial this code now to upgrade your SIM to 5G or your line will be deactivated."
+    ],
+    "red_flags": ["Threat to bar your line", "Link or code from unknown sender", "Asks for NIN or personal details"],
+    "action": "Do NIN-SIM linkage only through official telco channels or USSD codes listed on their official website."
+  },
+  {
+    "id": "free-data-airtime",
+    "scam_type": "telco",
+    "title": "Free data or airtime link",
+    "description": "Viral message offering free data or airtime from a telco or government, asking you to fill a form, share with contacts, or install an app.",
+    "examples": [
+      "MTN is giving 50GB free data to celebrate 30 years. Click to claim and share with 10 friends.",
+      "Get free N5,000 airtime from FG, register here."
+    ],
+    "red_flags": ["Free data or airtime via link", "Asks you to share with friends", "Non-official domain"],
+    "action": "Check offers only on the telco's official app or website. Don't share the link."
+  },
+  {
+    "id": "ussd-dial-code",
+    "scam_type": "otp_theft",
+    "title": "Asked to dial a USSD code",
+    "description": "Scammer gets you to dial a USSD string that actually transfers money from your account or forwards your calls, presented as a reward or verification step.",
+    "examples": [
+      "To receive your reward, dial *737*2*5000*0123456789# now.",
+      "Dial this code to confirm your identity and stop the account suspension."
+    ],
+    "red_flags": ["USSD code containing an amount or account number", "Reward or verification excuse", "Sent by someone else"],
+    "action": "Never dial a code someone sends you. Check what any code does on your bank's official site."
+  },
+  {
+    "id": "fake-customer-care-social",
+    "scam_type": "fake_support",
+    "title": "Fake customer care on social media",
+    "description": "After you complain publicly about a failed transaction, a lookalike 'support' account contacts you and asks for login details, OTP or a 'reversal' payment.",
+    "examples": [
+      "Hello, we saw your complaint. DM your account number and the OTP you will receive to resolve the issue.",
+      "Kindly fill this form with your internet banking details for your reversal."
+    ],
+    "red_flags": ["Support account contacted you first", "Lookalike name or unverified handle", "Asks for OTP or login"],
+    "action": "Only use support channels listed in your bank's official app or website. Real support won't ask for OTP or PIN."
+  },
+  {
+    "id": "pos-agent-reversal",
+    "scam_type": "fake_payment",
+    "title": "POS agent 'wrong transfer' reversal trick",
+    "description": "Scammer sends money to a POS agent's or trader's account, then a fake 'bank' contacts them saying it was fraudulent and they must refund to another account.",
+    "examples": [
+      "This is your bank. A fraudulent transfer was made to your account, send it back to this account or your account will be frozen.",
+      "Someone sent N100,000 to you by mistake, refund it now to avoid police."
+    ],
+    "red_flags": ["Refund demanded to a different account", "Threat of freezing or police", "Unofficial number"],
+    "action": "Don't refund to another account. Go to your bank or call its official line to handle any reversal."
+  },
+  {
+    "id": "landlord-rent-deposit",
+    "scam_type": "rental",
+    "title": "Fake landlord or agent asking for deposit",
+    "description": "Fake listing for an apartment or hostel at a good price; the 'agent' asks for inspection, form or deposit fees before you can see it.",
+    "examples": [
+      "The self-contain is still available. Pay N20,000 inspection fee to secure the viewing.",
+      "Many people want this apartment, pay 50% deposit today and I'll send the keys."
+    ],
+    "red_flags": ["Payment before viewing", "Price too good for the area", "Pressure from 'other buyers'"],
+    "action": "Never pay before physically inspecting a property and verifying the landlord. Visit with someone you trust."
+  },
+  {
+    "id": "marketplace-advance-payment",
+    "scam_type": "marketplace",
+    "title": "Online seller who wants full payment first",
+    "description": "Seller on Instagram, WhatsApp or Jiji offers phones, cars or gadgets far below market price and insists on full payment or 'waybill' fees before delivery.",
+    "examples": [
+      "iPhone 15 Pro Max for N250,000 only. Pay now and we waybill to you today.",
+      "Pay the delivery fee first, the driver is already on the way."
+    ],
+    "red_flags": ["Price far below market", "Full payment before delivery", "No physical shop or reviews"],
+    "action": "Pay on delivery or meet in a safe public place. Check reviews and avoid deals that look too good."
+  },
+  {
+    "id": "fake-charity-appeal",
+    "scam_type": "charity",
+    "title": "Fake charity or medical appeal",
+    "description": "Emotional appeal for donations for a sick child, disaster or orphanage using stolen photos and a personal account number.",
+    "examples": [
+      "Please help this child who needs N5 million for heart surgery. Send anything to this account.",
+      "Flood victims need your support, donate today to this account."
+    ],
+    "red_flags": ["Personal account for donations", "Stolen or stock images", "No verifiable organisation"],
+    "action": "Give through registered organisations or hospitals you can verify directly."
+  },
+  {
+    "id": "fake-police-efcc",
+    "scam_type": "authority_threat",
+    "title": "Fake police or EFCC threat",
+    "description": "Caller or message claims to be police, EFCC or another agency, says you're under investigation, and demands money to 'settle' or avoid arrest.",
+    "examples": [
+      "This is EFCC. Your account has been linked to fraud. Pay N150,000 to clear your name or be arrested today.",
+      "Police: there's a warrant on your name, call this number to settle before we come."
+    ],
+    "red_flags": ["Demand for money to avoid arrest", "Threats and urgency", "Unofficial phone number"],
+    "action": "Real agencies don't settle cases by transfer. Don't pay; seek advice from a lawyer or visit a police station in person."
+  },
+  {
+    "id": "inheritance-419",
+    "scam_type": "advance_fee",
+    "title": "Inheritance or 419 business proposal",
+    "description": "Classic advance-fee fraud: a stranger offers a share of a huge inheritance, contract or trapped funds in exchange for fees, documents or bank details.",
+    "examples": [
+      "I am a bank manager with $8.5 million unclaimed funds. I need a trusted partner to receive it; you'll get 40%.",
+      "Your name was selected as beneficiary of a late client's estate. Send processing fee for documents."
+    ],
+    "red_flags": ["Huge sum from a stranger", "Fees for documents or transfer", "Secrecy"],
+    "action": "Ignore and delete. There is no inheritance; every 'fee' will be followed by another."
+  },
+  {
+    "id": "voice-clone-call",
+    "scam_type": "ai_voice_clone",
+    "title": "AI voice-clone emergency call or voice note",
+    "description": "Voice note or call that sounds exactly like a relative or boss (AI-cloned from social media audio), describing an emergency and asking for urgent money.",
+    "examples": [
+      "(Voice note in your brother's voice) I'm at the police station, they need N200,000 for bail, please send now, don't tell Mummy.",
+      "(Call from 'your boss') I need you to transfer company funds urgently, I'll explain later."
+    ],
+    "red_flags": ["Familiar voice with unusual request", "Extreme urgency and secrecy", "New number or poor call quality"],
+    "action": "Hang up and call the person back on their known number. Agree a family 'safe word' to confirm real emergencies."
+  },
+  {
+    "id": "deepfake-endorsement",
+    "scam_type": "investment",
+    "title": "Deepfake celebrity investment ad",
+    "description": "Video ad showing a famous Nigerian businessperson, politician or celebrity (AI-generated) endorsing an investment platform or trading app.",
+    "examples": [
+      "Watch: Dangote reveals the platform that turns N50,000 into N1 million in a week.",
+      "Famous billionaire says everyone should join this new trading app before the government stops it."
+    ],
+    "red_flags": ["Celebrity promising easy riches", "Links to unknown investment site", "'Before it's banned' urgency"],
+    "action": "Celebrities don't sell secret investment platforms. Don't sign up or deposit."
+  },
+  {
+    "id": "phishing-email-account",
+    "scam_type": "credential_phishing",
+    "title": "Email or social account phishing",
+    "description": "Message claims your email, Facebook, Instagram or WhatsApp account will be disabled for violations and asks you to log in via a link to appeal.",
+    "examples": [
+      "Your Instagram account will be deleted within 24 hours for copyright violation. Appeal here: [link]",
+      "Meta Support: your page has been flagged. Verify your account to avoid suspension."
+    ],
+    "red_flags": ["Deletion threat with deadline", "Login link not on the official domain", "Sent via DM or email from unknown address"],
+    "action": "Check account status only inside the official app. Enable two-factor authentication."
+  },
+  {
+    "id": "tech-support-remote",
+    "scam_type": "fake_support",
+    "title": "Remote access 'tech support'",
+    "description": "Caller says your phone or bank app is hacked and asks you to install a screen-sharing app (e.g. AnyDesk) so they can 'fix' it, then drains accounts.",
+    "examples": [
+      "Your bank app has a virus. Install AnyDesk and give me the code so I can secure your account.",
+      "We detected suspicious activity, download this app so our engineer can help."
+    ],
+    "red_flags": ["Asks you to install a remote-access app", "Unsolicited security warning", "Requests codes from the app"],
+    "action": "Never install apps at a stranger's request. Uninstall any remote-access app you installed and contact your bank."
+  },
+  {
+    "id": "fake-exam-admission",
+    "scam_type": "education",
+    "title": "Fake JAMB, WAEC or admission help",
+    "description": "Offers of guaranteed admission, upgraded scores or leaked exam questions for a fee, often impersonating JAMB, WAEC or university officials.",
+    "examples": [
+      "Get guaranteed admission into UNILAG without cut-off mark. Pay N80,000 to our admission officer.",
+      "JAMB result upgrade available, pay N20,000 and your score will be increased."
+    ],
+    "red_flags": ["Guaranteed admission or score change", "Payment to individuals", "Leaked question claims"],
+    "action": "Admission and results are only handled through official JAMB and school portals. Don't pay middlemen."
+  },
+  {
+    "id": "pig-butchering-wrong-number",
+    "scam_type": "investment",
+    "title": "\"Wrong number\" friendship turned investment",
+    "description": "Stranger texts a 'wrong number', becomes friendly over days or weeks, then introduces a crypto or trading platform where they claim to make big profits.",
+    "examples": [
+      "Hi Sandra, are we still on for dinner? Oh sorry wrong number, but nice to meet you.",
+      "My uncle taught me this trading platform, I made $5,000 last week. Let me show you how."
+    ],
+    "red_flags": ["Friendly stranger after a 'wrong number'", "Slowly introduces investment", "Platform you can't verify"],
+    "action": "Stop contact when a new online friend starts talking investments. Don't deposit anything."
+  },
+  {
+    "id": "legit-bank-otp",
+    "scam_type": "legitimate",
+    "title": "Genuine OTP or transaction notification",
+    "description": "Real bank or fintech messages that deliver an OTP or confirm a transaction you made, with warnings never to share the code and no links or requests.",
+    "examples": [
+      "Your OTP for transfer of N15,000 is 482913. Do not share this code with anyone.",
+      "Acct: 01****89 Amt: NGN5,000.00 DR Desc: POS Purchase Bal: NGN12,400.00"
+    ],
+    "red_flags": [],
+    "action": "If you started this transaction, no action needed. If you didn't, contact your bank through its official app or the number on your card."
+  },
+  {
+    "id": "legit-delivery-update",
+    "scam_type": "legitimate",
+    "title": "Genuine delivery or service update",
+    "description": "Real courier, telco or service updates for an order you placed, with links only to official domains and no requests for payment or personal details.",
+    "examples": [
+      "Your order #48213 is out for delivery today. Track it at the official app.",
+      "Your data bundle of 10GB has been activated. Expires 05/11/2026."
+    ],
+    "red_flags": [],
+    "action": "If it matches something you ordered, it's likely fine. Still avoid clicking links you weren't expecting."
+  },
+  {
+    "id": "legit-personal-chat",
+    "scam_type": "legitimate",
+    "title": "Normal personal conversation",
+    "description": "Everyday chat between friends, family or colleagues without requests for money, codes, secrecy or urgent action.",
+    "examples": [
+      "Are we still meeting at 4pm by the faculty gate?",
+      "Mummy, I don reach school. I go call you for evening."
+    ],
+    "red_flags": [],
+    "action": "No action needed."
+  }
+]
