@@ -9,7 +9,8 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "embed:patterns": "tsx --conditions=react-server --env-file-if-exists=.env.local scripts/embed-patterns.ts"
+    "embed:patterns": "tsx --conditions=react-server --env-file-if-exists=.env.local scripts/embed-patterns.ts",
+    "try": "tsx --conditions=react-server --env-file-if-exists=.env.local scripts/try.ts"
   },
   "dependencies": {
     "@google/genai": "^2.27.0",

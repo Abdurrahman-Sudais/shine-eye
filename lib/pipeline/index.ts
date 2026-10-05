@@ -44,8 +44,9 @@ export async function analyze(req: AnalyzeRequest): Promise<Verdict> {
   let llmError: string | null = null;
   const t0 = performance.now();
   try {
-    llm = await reason({ redactedText: redact(text), language: req.language, evidence: full ? { signals, matches } : undefined });
-    pipeline.push({ stage: "reason", status: "ok", ms: Math.round(performance.now() - t0) });
+    const out = await reason({ redactedText: redact(text), language: req.language, evidence: full ? { signals, matches } : undefined });
+    llm = out.data;
+    pipeline.push({ stage: "reason", status: "ok", ms: Math.round(performance.now() - t0), note: out.model });
     pipeline.push({ stage: "localize", status: "ok", ms: 0, note: "written in the reasoning call" });
   } catch (err) {
     if (!(err instanceof LlmNotConfiguredError || err instanceof LlmRateLimitError || err instanceof LlmOutputError)) {

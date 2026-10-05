@@ -1,6 +1,6 @@
 import "server-only";
 import { z } from "zod";
-import { generateStructured } from "@/lib/llm";
+import { generateStructured, type Generated } from "@/lib/llm";
 import { ScamTypeSchema } from "@/lib/patterns";
 import type { Match } from "@/lib/pipeline/retrieve";
 import type { Language, Signal } from "@/lib/schema";
@@ -97,6 +97,6 @@ export function buildPrompt({ redactedText, language, evidence }: ReasonInput): 
   return parts.join("\n\n");
 }
 
-export function reason(input: ReasonInput): Promise<LlmVerdict> {
+export function reason(input: ReasonInput): Promise<Generated<LlmVerdict>> {
   return generateStructured({ system: SYSTEM, prompt: buildPrompt(input), schema: LlmVerdictSchema, tier: "main" });
 }
