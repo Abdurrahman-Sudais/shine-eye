@@ -13,9 +13,10 @@ Abdurrahman Sudais (GitHub: Abdurrahman-Sudais), solo. Strongest in Flutter/Dart
 - Zod for every boundary (API input, LLM output). Vitest for unit tests + eval.
 - Supabase: Postgres + pgvector for community reports/clusters only.
 - Vercel hosting (free subdomain).
-- AI behind `lib/llm.ts` (`generateStructured`, `describeImage`, `transcribe`, `embed`), provider chosen by env:
-  - Verdict + vision: Claude Sonnet 5.5 (`claude-sonnet-5-5`); cheap steps: Claude Haiku 4.5 (`claude-haiku-4-5`). Official `@anthropic-ai/sdk` only.
-  - STT + embeddings: Gemini (Google AI Studio key). Spitch is a candidate for Yoruba/Igbo STT + TTS.
+- AI behind `lib/llm.ts` (`generateStructured`, `describeImage`, `transcribe`, `embed`), models via env. **No paid APIs** (no budget):
+  - Google Gemini free tier (`@google/genai`): verdict + vision + transcription on `gemini-3.8-flash`, cheap steps `gemini-3.5-flash-lite`, embeddings `gemini-embedding-2-preview`.
+  - Planned fallback on rate limit: Featherless (ForgeHacks perk credits). Spitch is a candidate for Yoruba/Igbo STT + TTS.
+  - Free-tier inputs may be used by Google: redact numbers before any LLM call (`lib/pipeline/redact.ts`) and say so in the privacy note.
 
 ## Layout
 ```
@@ -57,5 +58,6 @@ MVP (PRD §4) first. Stretch, in order: Telegram bot → TTS read-aloud → fake
 ## Commands
 - `npm run dev`: local dev
 - `npm test`: Vitest unit tests
+- `npm run embed:patterns`: re-embed `data/patterns.json` (run after editing patterns)
 - `npm run eval`: run eval harness (full vs llm_only) → `eval/results.md`
 - `npm run lint` / `npm run typecheck` (typecheck needs a prior `next dev`/`build` for generated route types)

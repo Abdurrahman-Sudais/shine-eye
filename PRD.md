@@ -263,7 +263,7 @@ Title + one-liner + live demo link + video link → problem & users → features
 Once these are settled, propose the build order and start with the Sat Oct 3 tasks.
 
 ### Resolved (Sat Oct 3)
-1. **LLM:** Claude Sonnet 5.5 (`claude-sonnet-5-5`) for verdict + vision; Claude Haiku 4.5 (`claude-haiku-4-5`) for cheap steps; all behind `lib/llm.ts`.
+1. **LLM:** ~~Claude Sonnet 5.5 / Haiku 4.5~~ changed Oct 5: no budget for a paid key, so **Gemini free tier** for everything (`gemini-3.8-flash` verdict + vision + audio, `gemini-3.5-flash-lite` cheap steps, `gemini-embedding-2-preview` embeddings), behind `lib/llm.ts`. Featherless perk credits as rate-limit fallback. Numbers are redacted before LLM calls because free-tier inputs may be used by Google.
 2. **STT:** Gemini (audio input via Google AI Studio key) as default, chosen because it handles code-switched English/Pidgin voice notes and needs no extra account. Spitch (Nigerian speech API: Yoruba/Hausa/Igbo STT + TTS) is the candidate upgrade for Yoruba/Igbo transcription and the read-aloud stretch, to be verified on Tue Oct 6. Fallback: "Voice notes coming soon".
 3. **Retrieval:** scam-pattern library in memory with precomputed embeddings (Gemini embeddings, saved to JSON); community reports in Supabase + pgvector. If pgvector adds real friction, raise it before switching.
 4. **Name:** ShineEye, free Vercel subdomain.

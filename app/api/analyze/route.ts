@@ -4,6 +4,8 @@ import { AnalyzeRequestSchema, type ApiError, type Verdict } from "@/lib/schema"
 
 // Node runtime (not Edge): provider SDKs and later audio/image handling need Node APIs.
 export const runtime = "nodejs";
+// Vercel function timeout (seconds): embedding + LLM calls can take a few seconds.
+export const maxDuration = 30;
 
 export async function POST(request: Request) {
   let body: unknown;

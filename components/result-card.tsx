@@ -1,5 +1,5 @@
 import { HighlightedText } from "@/components/highlighted-text";
-import type { RiskLevel, Verdict } from "@/lib/schema";
+import type { RiskLevel, Signal, Verdict } from "@/lib/schema";
 
 const RISK_STYLES: Record<RiskLevel, { label: string; text: string; soft: string; bar: string }> = {
   likely_safe: { label: "Likely safe", text: "text-safe", soft: "bg-safe-soft", bar: "bg-safe" },
@@ -9,6 +9,12 @@ const RISK_STYLES: Record<RiskLevel, { label: string; text: string; soft: string
 
 export function ResultCard({ verdict }: { verdict: Verdict }) {
   const risk = RISK_STYLES[verdict.risk_level];
+  const aiFailed = verdict.pipeline.some((s) => s.stage === "reason" && s.status === "failed");
+  // Rule-based spans plus the AI's grounded red-flag quotes, highlighted together.
+  const highlights: Signal[] = [
+    ...verdict.signals,
+    ...verdict.red_flags.flatMap((f) => (f.span ? [{ type: "llm.red_flag", label: f.why, weight: 25, span: f.span }] : [])),
+  ];
   // One line per distinct finding; informational (weight 0) signals stay out of the list.
   const findings = verdict.signals
     .filter((s) => s.weight !== 0)
@@ -19,9 +25,9 @@ export function ResultCard({ verdict }: { verdict: Verdict }) {
       aria-live="polite"
       className="overflow-hidden rounded-3xl border border-border bg-surface shadow-sm"
     >
-      {verdict.stub && (
+      {aiFailed && (
         <p className="border-b border-border bg-warn-soft px-5 py-2 text-sm font-medium text-warn">
-          Placeholder verdict: the AI step isn&apos;t connected yet. Rule-based findings are real.
+          AI check unavailable right now: this is a rule-based estimate only.
         </p>
       )}
 
@@ -47,7 +53,7 @@ export function ResultCard({ verdict }: { verdict: Verdict }) {
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wide text-muted">Your message</h3>
           <div className="mt-2 rounded-2xl border border-border px-4 py-3">
-            <HighlightedText text={verdict.input.text} signals={verdict.signals} />
+            <HighlightedText text={verdict.input.text} signals={highlights} />
           </div>
         </div>
 
